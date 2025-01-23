@@ -1,4 +1,10 @@
----
-server: server12
-- swtch: switch16
-- port: 12
+servers:
+  server11:
+    switch: switch14
+    port: 3
+  server12:
+    switch: switch16
+    port: 6
+  server18:
+    switch: switch10
+    port: 9
