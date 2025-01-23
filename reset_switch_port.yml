@@ -1,9 +1,12 @@
 ---
-- name: Reset network port
+- name: Reset network port, input server name
   hosts: all
   become: true
 
   tasks:
+  - name: determine switch and port
+    ansible.builtin.debug:
+      msg: "switch: <> Port <>"
   - name: Reset Switch port
     community.general.nmcli:
       conn_name: 'Production'
