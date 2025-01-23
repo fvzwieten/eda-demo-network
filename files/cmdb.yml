@@ -1,0 +1,4 @@
+---
+server: server12
+- swtch: switch16
+- port: 12
