@@ -1,22 +1,12 @@
 ---
-#- name: Reset network port, input server name
-#  hosts: localhost
-#  vars_files:
-#  - files/cmdb.yml
-#
-#  tasks:
-#  - name: lookup switch and port from CMDB to inventory
-#    add_host:
-#      name: "servers[server].switch"
-#
-- name: Reset port "{{ servers[server].port }} on switch {{ servers[server].switch }}"
+- name: Reset Switch Port using server as lookup in CMDB
   hosts: "{{ servers[server].switch }}"
   become: true
   vars_files:
   - files/cmdb.yml
   
   tasks:
-  - name: Reset Switch Port
+  - name: Reset port "{{ servers[server].port }} on switch {{ servers[server].switch }}"
     community.general.nmcli:
       conn_name: "port{{ servers[server].port }}"
       state: up
