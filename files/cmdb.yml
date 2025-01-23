@@ -1,10 +1,10 @@
 servers:
   server11:
-    switch: switch14
+    switch: 14
     port: 3
   server12:
-    switch: switch16
+    switch: 16
     port: 6
   server18:
-    switch: switch10
+    switch: 10
     port: 9
