@@ -2,7 +2,7 @@
 - name: Reset network port, input server name
   hosts: all
   become: true
-  var_files:
+  vars_files:
   - files/cmdb.yml
   vars:
   - server: server12
@@ -13,5 +13,5 @@
       msg: "switch: {{ servers.{{ server }}.switch }}"
   - name: Reset Switch port
     community.general.nmcli:
-      conn_name: "{{ port }}"
+      conn_name: "port6"
       state: up
