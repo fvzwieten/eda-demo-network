@@ -10,7 +10,7 @@
   tasks:
   - name: determine switch and port
     ansible.builtin.debug:
-      msg: "switch: {{ servers.{{ server }}.switch }}"
+      msg: "switch: {{ servers.server12.switch }}"
   - name: Reset Switch port
     community.general.nmcli:
       conn_name: "port6"
