@@ -1,17 +1,21 @@
 ---
-- name: Reset network port, input server name
-  hosts: all
-  become: true
+#- name: Reset network port, input server name
+#  hosts: localhost
+#  vars_files:
+#  - files/cmdb.yml
+#
+#  tasks:
+#  - name: lookup switch and port from CMDB to inventory
+#    add_host:
+#      name: "servers[server].switch"
+#
+- name: Reset port {{ servers[server].port }} on switch {{ servers[server].switch }}
+  hosts: {{ servers[server].switch }}
   vars_files:
   - files/cmdb.yml
-  vars:
-  - server: server12
-
+  
   tasks:
-  - name: determine switch and port
-    ansible.builtin.debug:
-      msg: "switch: {{ servers[server].switch }}"
-  - name: Reset Switch port
+  - name: Reset Switch Port
     community.general.nmcli:
-      conn_name: "port6"
+      conn_name: "port{{ servers[server].port }}"
       state: up
