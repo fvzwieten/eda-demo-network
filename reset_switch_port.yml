@@ -11,6 +11,7 @@
 #
 - name: Reset port "{{ servers[server].port }} on switch {{ servers[server].switch }}"
   hosts: "{{ servers[server].switch }}"
+  become: true
   vars_files:
   - files/cmdb.yml
   
