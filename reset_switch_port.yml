@@ -6,7 +6,7 @@
   - files/cmdb.yml
   
   tasks:
-  - name: Reset port "{{ servers[server].port }} on switch {{ servers[server].switch }}"
+  - name: Reset port {{ servers[server].port }} on switch {{ servers[server].switch }}
     community.general.nmcli:
       conn_name: "port{{ servers[server].port }}"
       state: up
