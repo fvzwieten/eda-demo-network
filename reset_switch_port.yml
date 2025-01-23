@@ -9,5 +9,5 @@
       msg: "switch: <> Port <>"
   - name: Reset Switch port
     community.general.nmcli:
-      conn_name: 'Production'
+      conn_name: "{{ port }}"
       state: up
