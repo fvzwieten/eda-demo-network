@@ -1,6 +1,6 @@
 ---
 - name: Reset Switch Port using server as lookup in CMDB
-  hosts: "{{ servers[server].switch }}"
+  hosts: "switch{{ servers[server].switch }}"
   become: true
   vars_files:
   - files/cmdb.yml
