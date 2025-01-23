@@ -9,8 +9,8 @@
 #    add_host:
 #      name: "servers[server].switch"
 #
-- name: Reset port {{ servers[server].port }} on switch {{ servers[server].switch }}
-  hosts: {{ servers[server].switch }}
+- name: Reset port "{{ servers[server].port }} on switch {{ servers[server].switch }}"
+  hosts: "{{ servers[server].switch }}"
   vars_files:
   - files/cmdb.yml
   
