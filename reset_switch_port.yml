@@ -1,0 +1,10 @@
+---
+- name: Reset network port
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Reset Switch port
+    community.general.nmcli:
+      conn_name: 'Production'
+      state: up
