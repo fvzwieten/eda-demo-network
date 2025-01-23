@@ -2,11 +2,15 @@
 - name: Reset network port, input server name
   hosts: all
   become: true
+  var_files:
+  - files/cmdb.yml
+  vars:
+  - server: server12
 
   tasks:
   - name: determine switch and port
     ansible.builtin.debug:
-      msg: "switch: <> Port <>"
+      msg: "switch: {{ servers.{{ server }}.switch }}"
   - name: Reset Switch port
     community.general.nmcli:
       conn_name: "{{ port }}"
